@@ -1,13 +1,28 @@
+import { useAuth } from "../../Components/Context";
 import Logo from "./../../assets/Logo.png";
 import Button from "./../../Components/Button/index";
 import { ICONS } from "./../../Components/Constant/Icons/index";
 
 export const SignIn = () => {
+  const { SignUp, handleGoogle, handleFacebook, currentUser } = useAuth();
+  console.log(currentUser);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const email = e.target[0].value;
+    const password = e.target[0].value;
+    await SignUp(email, password);
+
+    e.target[0].value = "";
+    e.target[1].value = "";
+  };
+
   return (
-    <section className="flex  w-full justify-center  items-center h-[100vh]">
+    <section className="flex  w-full justify-center  items-center h-[100vh] overflow-x-hidden">
       <div className="w-[90%] flex justify-center items-center">
         <div className="w-full">
-          <div className="flex justify-start items-center w-full">
+          <div className="md:flex justify-start items-center w-full hidden">
             <img src={ICONS.biglogo} alt="logo" />
           </div>
 
@@ -19,11 +34,17 @@ export const SignIn = () => {
               Join millions of others in sharing successful moves on HelpMeOut.
             </p>
 
-            <Button className="border-[2px]  rounded-[10px] w-[300px]  gap-3 flex  justify-center items-center px-2 py-1">
+            <Button
+              className="border-[2px]  rounded-[10px] w-[300px]  gap-3 flex  justify-center items-center px-2 py-1"
+              onClick={handleGoogle}
+            >
               <img src={ICONS.google} alt="facebook" className="w-[20px]" />
               <span className="text-[13px]"> Continue with Google</span>
             </Button>
-            <Button className="border-[2px]  rounded-[10px] w-[300px]  gap-3 flex  justify-center items-center px-2 py-1">
+            <Button
+              className="border-[2px]  rounded-[10px] w-[300px]  gap-3 flex  justify-center items-center px-2 py-1"
+              onClick={handleFacebook}
+            >
               <img src={ICONS.facebook} alt="facebook" className="w-[20px]" />
               <span className="text-[13px]"> Continue with Facebook</span>
             </Button>
@@ -35,7 +56,7 @@ export const SignIn = () => {
 
             {/* email */}
 
-            <form action="" className="">
+            <form action="" className="" onSubmit={handleSubmit}>
               <div className="flex flex-col my-1">
                 <label
                   htmlFor="email"
@@ -48,7 +69,7 @@ export const SignIn = () => {
                   name="email"
                   id="email"
                   placeholder="Enter your email address "
-                  className="w-[300px] border-[2px]  p-1  border-[#B9C2C8] font-[500] text-[#141414] rounded-xl"
+                  className="w-[300px] border-[2px]  py-[3px]   outline-none  px-[10px]  border-[#B9C2C8] font-[500] text-[#141414] rounded-xl"
                 />
               </div>
               <div className="flex flex-col  my-1">
@@ -60,14 +81,14 @@ export const SignIn = () => {
                   Password
                 </label>
                 <input
-                  type="text"
-                  name="email"
-                  id="email"
+                  type="password"
+                  name="password"
+                  id="password"
                   placeholder="Enter your password"
-                  className="w-[300px] border-2  p-1  rounded-xl border-[#B9C2C8] "
+                  className="w-[300px] border-[2px]  py-[3px] px-[10px]  rounded-xl border-[#B9C2C8]  outline-none"
                 />
               </div>
-              <Button className="bg-background   w-[300px] text-white p-1 rounded-[5px] mt-3">
+              <Button className="bg-background   w-[300px] text-white p-2 rounded-[5px] mt-3 outline-none">
                 <div className=" text-[#FFFF] font-worksans">Sign Up</div>
               </Button>
             </form>

@@ -1,16 +1,19 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import {
   GoogleAuthProvider,
   signInWithRedirect,
   FacebookAuthProvider,
   onAuthStateChanged,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../firebase";
+import toast from "react-hot-toast";
 
 export const AuthConext = createContext();
 
 const AuthContextProvider = ({ children }) => {
-  const [cureentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
     const sub = onAuthStateChanged(auth, (user) => {
@@ -22,30 +25,15 @@ const AuthContextProvider = ({ children }) => {
   // signup
   const SignUp = async (email, password) => {
     try {
-      const result = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      if (result) {
-        setCurrentUser(result.user);
-      }
+      await createUserWithEmailAndPassword(auth, email, password);
     } catch (error) {
-      console.log(error.meesage);
+      console.log(error);
     }
   };
 
   // facebook login
   const handleFacebook = async () => {
-    try {
-      const provider = new FacebookAuthProvider();
-      const result = await signInWithRedirect(auth, provider);
-      if (result) {
-        setCurrentUser(result.user);
-      }
-    } catch (error) {
-      console.log(error.meesage);
-    }
+    toast.error("please use google or signup button ");
   };
 
   // google login
@@ -53,22 +41,22 @@ const AuthContextProvider = ({ children }) => {
     try {
       const provider = new GoogleAuthProvider();
 
-      const result = await signInWithRedirect(auth, provider);
-      if (result) {
-        setCurrentUser(result.user);
+      const rseult = await signInWithRedirect(auth, provider);
+      if (rseult) {
+        setCurrentUser(rseult.user);
       }
     } catch (error) {
-      console.log(error.meesage);
+      console.log(error);
     }
   };
 
-  const context = {
-    SignUp,
-    handleGoogle,
-    handleFacebook,
-    cureentUser,
-  };
-  return <AuthConext.Provider value={context}>{children}</AuthConext.Provider>;
+  return (
+    <AuthConext.Provider
+      value={{ SignUp, handleGoogle, handleFacebook, currentUser }}
+    >
+      {children}
+    </AuthConext.Provider>
+  );
 };
 
 export default AuthContextProvider;
