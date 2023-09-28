@@ -11,6 +11,7 @@ export default {
     fontFamily: {
       worksans: ["Work Sans", " sans-serif"],
       inter: ["Inter", "sans-serif"],
+      sora: ["Sora", "sans-serif"],
     },
     extend: {},
   },

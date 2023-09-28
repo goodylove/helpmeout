@@ -1,5 +1,4 @@
 import { useAuth } from "../../Components/Context";
-import Logo from "./../../assets/Logo.png";
 import Button from "./../../Components/Button/index";
 import { ICONS } from "./../../Components/Constant/Icons/index";
 

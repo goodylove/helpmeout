@@ -10,14 +10,23 @@ import simple from "./simplerec.svg";
 import google from "./google.svg";
 import facebook from "./facebook.svg";
 import biglogo from "./biglogo.svg";
+import hero from "./hero1.svg";
+import hero2 from "./hero2.svg";
+import navicon from "./navicon.svg";
+import feature from "./feature.svg";
 
 export const ICONS = {
   Img2,
   Img1,
   Img3,
+  feature,
   google,
+  navicon,
   biglogo,
   facebook,
+
+  hero,
+  hero2,
   // easyshare,
   logo,
   recording,
