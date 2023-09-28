@@ -1,7 +1,7 @@
 import Img1 from "./img1.svg";
 import Img2 from "./img2.svg";
 import Img3 from "./img3.svg";
-// import easyshare from "./easytoshare.svg";
+import easyshare from "./esaytoshare.svg";
 import logo from "./logo.svg";
 import recording from "./record.svg";
 import revisiterecord from "./revisit.svg";
@@ -27,7 +27,7 @@ export const ICONS = {
 
   hero,
   hero2,
-  // easyshare,
+  easyshare,
   logo,
   recording,
   revisiterecord,

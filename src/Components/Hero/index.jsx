@@ -3,7 +3,7 @@ import { ICONS } from "../Constant/Icons";
 
 function Hero() {
   return (
-    <section className="flex justify-center  items-center px-10 mt-10 md:flex-col flex-col xl:flex-row lg:flex-row">
+    <section className="flex justify-center  items-center px-10 md:mt-20  md:flex-col flex-col xl:flex-row lg:flex-row">
       <div className="lg:w-[48%] w-[71%]">
         <h2 className=" font-sora  font-[900]   md:font-[700] text-[27px]  md:text-[64px] leading-[34px]  md:leading-[64px]">
           Show Them Don’t Just Tell

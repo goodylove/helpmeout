@@ -4,7 +4,7 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 function NavBar() {
   return (
-    <nav className="flex  justify-between items-center w-full py-5 px-10">
+    <nav className="flex  justify-between items-center w-full py-5 md:px-10 px-4">
       <img src={ICONS.biglogo} alt="" />
       <div className="md:flex items-center gap-10 leading-[18.77px] font-[600] font-worksans text-[16px] text-[#000000] hidden">
         <span>Feature</span>
