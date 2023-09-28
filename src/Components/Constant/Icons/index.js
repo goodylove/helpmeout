@@ -7,11 +7,17 @@ import recording from "./record.svg";
 import revisiterecord from "./revisit.svg";
 import sent from "./sent.svg";
 import simple from "./simplerec.svg";
+import google from "./google.svg";
+import facebook from "./facebook.svg";
+import biglogo from "./biglogo.svg";
 
 export const ICONS = {
   Img2,
   Img1,
   Img3,
+  google,
+  biglogo,
+  facebook,
   // easyshare,
   logo,
   recording,
