@@ -14,15 +14,23 @@ import hero from "./hero1.svg";
 import hero2 from "./hero2.svg";
 import navicon from "./navicon.svg";
 import feature from "./feature.svg";
+import howitwork from "./howitwork.svg";
+import one from "./one.svg";
+import two from "./two.svg";
+import three from "./three.svg";
 
 export const ICONS = {
   Img2,
+  one,
+  two,
+  three,
   Img1,
   Img3,
   feature,
   google,
   navicon,
   biglogo,
+  howitwork,
   facebook,
 
   hero,

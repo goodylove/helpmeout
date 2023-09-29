@@ -2,7 +2,10 @@ import { ICONS } from "./../Constant/Icons/index";
 
 function Features() {
   return (
-    <section className="flex justify-center items-center w-full bg-[#F4F6F8] py-10 my-28">
+    <section
+      className="flex justify-center items-center w-full bg-[#F4F6F8] py-10 my-24"
+      id="feature"
+    >
       <div className="bg-[#FFFF] w-full flex justify-center items-center">
         <div className="w-[90%]">
           <div className="flex flex-col justify-center items-center">

@@ -5,7 +5,7 @@ function Footer() {
   return (
     <section className="w-full  flex justify-center items-center bg-background  font-worksans  py-16">
       <div className="w-[90%] flex justify-center  items-center gap-8 ">
-        <div className="flex justify-evenly   items-start w-full   text-white md:flex-row flex-col ">
+        <div className="flex justify-evenly   items-start w-full   text-[#FFF] md:flex-row flex-col ">
           <img src={Logo} alt="logo" className="w-[150px] bg-white" />
           <div>
             <ul className="flex flex-col gap-3 mt-4">
