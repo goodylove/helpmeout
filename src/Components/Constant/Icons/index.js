@@ -18,9 +18,23 @@ import howitwork from "./howitwork.svg";
 import one from "./one.svg";
 import two from "./two.svg";
 import three from "./three.svg";
+import great from "./great.svg";
+import less from "./less.svg";
+import gray from "./gray.svg";
+import fea from "./fea.svg";
+import goo from "./goo.svg";
+import star from "./star.svg";
+import webs from "./webstore.svg";
 
 export const ICONS = {
   Img2,
+  star,
+  webs,
+  goo,
+  fea,
+  gray,
+  great,
+  less,
   one,
   two,
   three,
