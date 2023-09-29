@@ -76,7 +76,6 @@ export const SignIn = () => {
                   htmlFor="email "
                   className=" font-worksans font-[700] leading-[16.52px] py-2 text-[#141414]"
                 >
-                  {" "}
                   Password
                 </label>
                 <input
