@@ -6,6 +6,8 @@ import Footer from "./../../Components/Footer/index";
 import SectionApp from "./../../Components/sectionapp/index";
 import ExtPopUp from "../../Components/expopup";
 import Permision from "../../Components/permision";
+import RecordScreen from "../../Components/recordscreen";
+import Control from "../../Components/control";
 
 function Home() {
   return (
@@ -20,7 +22,9 @@ function Home() {
       {/* <SectionApp /> */}
       {/* <ExtPopUp /> */}
 
-      <Permision />
+      {/* <Permision /> */}
+      <RecordScreen />
+      <Control />
     </div>
   );
 }
