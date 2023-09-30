@@ -1,66 +1,82 @@
-// import { useState } from "react";
+import { useState } from "react";
 
-// function useRecord() {
-//   let recorder = null;
+function useRecord() {
+  const [base, setBase] = useState(null);
+  let mediaRecorder;
+  const URL_API = "https://chrome-extension-n13j.onrender.com/api/upload";
 
-//   async function StartRecordingScreen() {
-//     return await navigator.mediaDevices.getDisplayMedia({
-//       audio: true,
-//       video: { mediaSource: "screen" },
-//     });
-//   }
+  async function handleFetchRequest() {
+    try {
+      const res = await fetch(URL_API, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Set the content type as needed
+        },
+        body: JSON.stringify(base),
+      });
 
-//   const createRecord = (stream) => {
-//     let recordedFile = [];
-//     recorder = new MediaRecorder(stream);
-//     recorder.ondataavailable = function (event) {
-//       if (event.data.size > 0) {
-//         recordedFile.push(event.data);
-//       }
-//     };
+      const data = await res.json();
+      console.log(data.results);
+    } catch (error) {
+      console.log(error, "Error");
+    }
+  }
 
-//     recorder.onstop = function () {
-//       handleSaveData(recordedFile);
-//       recordedFile = [];
-//     };
+  async function recordScreen() {
+    return await navigator.mediaDevices.getDisplayMedia({
+      audio: true,
+      video: { mediaSource: "screen" },
+    });
+  }
 
-//     recorder.start(200);
-//     return recorder;
-//   };
+  async function saveFile(recordedChunks) {
+    const blob = new Blob(recordedChunks, {
+      type: "video/webm",
+    });
 
-//   const handleStop = () => {
-//     if (recorder && recorder.state === "recording") {
-//       console.log("yes");
-//       // recorder.stop();
-//     }
-//   };
+    const fileReader = new FileReader();
 
-//   const handleSaveData = function (chunks) {
-//     const recordBlob = new Blob(chunks, {
-//       type: "video/webm",
-//     });
+    // Convert Blob to Base64
+    fileReader.onload = function () {
+      const base64String = fileReader.result.split(",")[1];
+      // console.log("Base64 String:", base64String);
+      setBase(base64String);
+    };
 
-//     // let fileName = window.prompt("Enter a file name");
-//     // let getLink = document.createElement("a");
-//     // getLink.href = URL.createObjectURL(recordBlob);
-//     // console.log(getLink.href);
-//     // let downlod = `${fileName}.webm`;
-//     // console.log(getLink.href);
-//     // console.log(fileName);
+    fileReader.readAsDataURL(blob);
+  }
 
-//     // document.body.appendChild(getLink);
-//     // getLink.click();
-//     // URL.revokeObjectURL(recordBlob);
-//     // document.body.removeChild(getLink);
-//   };
+  function createRecorder(stream, mimeType) {
+    let chunks = [];
 
-//   const startRocord = async function () {
-//     let startStream = await StartRecordingScreen();
-//     let mimeType = "video/webm";
-//     recorder = createRecord(startStream, mimeType);
-//   };
+    const mediaRecorder = new MediaRecorder(stream);
 
-//   return { handleStop, startRocord };
-// }
+    mediaRecorder.ondataavailable = function (e) {
+      if (e.data.size > 0) {
+        chunks.push(e.data);
+      }
+    };
+    mediaRecorder.onstop = function () {
+      saveFile(chunks);
+      chunks = [];
+    };
+    mediaRecorder.start(200); // For every 200ms the stream data will be stored in a separate chunk.
+    return mediaRecorder;
+  }
 
-// export default useRecord;
+  async function record() {
+    let stream = await recordScreen();
+    let mimeType = "video/webm";
+    mediaRecorder = createRecorder(stream, mimeType);
+  }
+
+  async function handleStop() {
+    if (mediaRecorder && mediaRecorder.state === "recording") {
+      console.log("stop recording");
+      mediaRecorder.stop();
+      await handleFetchRequest();
+    }
+  }
+  return { handleStop, record };
+}
+export default useRecord;

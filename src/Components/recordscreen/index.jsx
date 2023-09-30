@@ -1,54 +1,10 @@
 import { useState } from "react";
+import useRecord from "../../Hooks/useRecord";
 
 function RecordScreen() {
   const [toggleCameraBtn, setToggleCameraBtn] = useState(false);
   const [toggleAudioBtn, setToggleAudioBtn] = useState(false);
-
-  let mediaRecorder;
-
-  async function recordScreen() {
-    return await navigator.mediaDevices.getDisplayMedia({
-      audio: true,
-      video: { mediaSource: "screen" },
-    });
-  }
-
-  function saveFile(recordedChunks) {
-    const blob = new Blob(recordedChunks, {
-      type: "video/webm",
-    });
-  }
-
-  function createRecorder(stream, mimeType) {
-    let chunks = [];
-
-    const mediaRecorder = new MediaRecorder(stream);
-
-    mediaRecorder.ondataavailable = function (e) {
-      if (e.data.size > 0) {
-        chunks.push(e.data);
-      }
-    };
-    mediaRecorder.onstop = function () {
-      saveFile(chunks);
-      chunks = [];
-    };
-    mediaRecorder.start(200); // For every 200ms the stream data will be stored in a separate chunk.
-    return mediaRecorder;
-  }
-
-  async function record() {
-    let stream = await recordScreen();
-    let mimeType = "video/webm";
-    mediaRecorder = createRecorder(stream, mimeType);
-  }
-
-  const handleStop = () => {
-    if (mediaRecorder && mediaRecorder.state === "recording") {
-      console.log("stop recording");
-      mediaRecorder.stop();
-    }
-  };
+  const { record, handleStop } = useRecord();
 
   return (
     <main className="w-[300px] px-6 pt-6 pb-8 space-y-4 rounded-3xl shadow-2xl bg-[#fff]">
