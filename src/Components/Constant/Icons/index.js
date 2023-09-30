@@ -25,9 +25,25 @@ import fea from "./fea.svg";
 import goo from "./goo.svg";
 import star from "./star.svg";
 import webs from "./webstore.svg";
+import ex1 from "./ex1.svg";
+import ex2 from "./ex2.svg";
+import ex3 from "./ex3.svg";
+import ex4 from "./ex4.svg";
+import ex5 from "./ex5.svg";
+import more from "./more.svg";
+import pin from "./pin.svg";
 
+import close from "./close.svg";
 export const ICONS = {
   Img2,
+  close,
+  pin,
+  ex3,
+  more,
+  ex1,
+  ex5,
+  ex2,
+  ex4,
   star,
   webs,
   goo,
