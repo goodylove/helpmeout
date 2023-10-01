@@ -32,11 +32,13 @@ import ex4 from "./ex4.svg";
 import ex5 from "./ex5.svg";
 import more from "./more.svg";
 import pin from "./pin.svg";
+import man from "./man.svg";
 
 import close from "./close.svg";
 export const ICONS = {
   Img2,
   close,
+  man,
   pin,
   ex3,
   more,

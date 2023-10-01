@@ -15,7 +15,7 @@ function Hero() {
             Help your friends and loved ones by creating and sending videos on
             how to get things done on a website.
           </p>
-          <Link to="/sectionapp">
+          <Link to="/login">
             <Button className="bg-[#120B48] text-[#ffff] font-worksans font-[500] w-[200px]  md:w-[239px] flex  gap-3 justify-center items-center p-3 rounded-[5px] my-3">
               Install HelpMeOut <span>&#8594;</span>
             </Button>

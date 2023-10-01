@@ -3,7 +3,7 @@
 function Control() {
   // const { handleStop } = useRecord();
   return (
-    <div className="flex bg-[#000]  py-2 rounded-full shadow-2xl border text-[#fff] justify-center items-center gap-3 w-[451px] text-[14px]">
+    <div className="flex bg-[#000]   rounded-full shadow-2xl border text-[#fff] justify-center items-center gap-3 w-[451px] text-[14px]">
       <span>00:00:00</span>
       <span>
         <svg

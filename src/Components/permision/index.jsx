@@ -6,7 +6,7 @@ function Permision() {
   return (
     <div className="flex   relative">
       <div className="w-full h-[1px]  my-8 bg-[#878787]"></div>
-      <div className="border w-[400px] h-[200px] rounded m-4 absolute z-[1] bg-[#FFFF] left-10">
+      <div className="border md:w-[400px] md:h-[200px]  w-[253px] h-[213px]  rounded m-4 absolute z-[1] bg-[#FFFF] left-10">
         <div className="flex justify-between px-6 py-2 ">
           <span className=" font-inter text-[14px] font-[400]">
             HelpMeOut wants to
@@ -87,7 +87,7 @@ function Permision() {
           </span>
         </div>
         <div className="flex justify-end items-end pr-4 mt-7 gap-4">
-          <Link to="/recordscreen">
+          <Link to="/recordsection">
             <Button className="rounded-[4px] border-[0.5px] p-[10px] text-[13px] font-inter">
               Allow
             </Button>

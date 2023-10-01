@@ -8,6 +8,7 @@ import SectionApp from "./Components/sectionapp";
 import ExtPopUp from "./Components/expopup";
 import Permision from "./Components/permision";
 import RecordScreen from "./Components/recordscreen";
+import RecordSection from "./Components/recordSection";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path="/expopup" element={<ExtPopUp />} />
         <Route path="/permission" element={<Permision />} />
         <Route path="/recordscreen" element={<RecordScreen />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/recordsection" element={<RecordSection />} />
+        <Route path="/Login" element={<SignIn />} />
       </Routes>
       <Toaster position="top-right" />
     </main>
