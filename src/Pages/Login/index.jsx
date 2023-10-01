@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Components/Context";
 import Button from "./../../Components/Button/index";
 import { ICONS } from "./../../Components/Constant/Icons/index";
+import toast from "react-hot-toast";
 
 export const SignIn = () => {
   const { SignUp, handleGoogle, handleFacebook, currentUser } = useAuth();
   console.log(currentUser);
+  const naviagte = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,6 +15,11 @@ export const SignIn = () => {
     const email = e.target[0].value;
     const password = e.target[0].value;
     await SignUp(email, password);
+    if (currentUser) {
+      naviagte("/ready");
+    } else {
+      toast.error("signup");
+    }
 
     e.target[0].value = "";
     e.target[1].value = "";

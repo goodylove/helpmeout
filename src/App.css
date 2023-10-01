@@ -7,6 +7,11 @@
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+  transition: 0.3s ease-in-out;
+}
+body {
+  scroll-behavior: smooth;
 }
 .extension {
   animation-duration: 5s;

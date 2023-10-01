@@ -87,16 +87,13 @@ function Permision() {
           </span>
         </div>
         <div className="flex justify-end items-end pr-4 mt-7 gap-4">
-          <Link to="/recordsection">
-            <Button className="rounded-[4px] border-[0.5px] p-[10px] text-[13px] font-inter">
-              Allow
-            </Button>
-          </Link>
-          <Link to="/">
-            <Button className="rounded-[4px] border-[0.5px] p-[10px] text-[13px] font-inter">
-              Block
-            </Button>
-          </Link>
+          <Button className="rounded-[4px] border-[0.5px] p-[10px] text-[13px] font-inter">
+            Allow
+          </Button>
+
+          <Button className="rounded-[4px] border-[0.5px] p-[10px] text-[13px] font-inter">
+            Block
+          </Button>
         </div>
       </div>
     </div>
