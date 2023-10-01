@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../Button";
 import { ICONS } from "../Constant/Icons/index";
 
@@ -13,9 +14,11 @@ function SectionApp() {
                 alt="logo"
                 className="md:w-[300px] my-2 w-[200px]"
               />
-              <Button className="text-blue-4000 bg-[#0E75C5] text-[#fff] rounded p-2   font-inter md:text-[16px]  text-[6px]">
-                Add to Chrome
-              </Button>
+              <Link to="/expopup">
+                <Button className="text-blue-4000 bg-[#0E75C5] text-[#fff] rounded p-2   font-inter md:text-[16px]  text-[6px]">
+                  Add to Chrome
+                </Button>
+              </Link>
             </div>
             <div className=" md:w-[55%] flex flex-col md:ml-9  ml-18 w-[89%]">
               <div className="flex gap-3  my-2 ">

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../Button";
 import { ICONS } from "../Constant/Icons";
 
@@ -86,12 +87,16 @@ function Permision() {
           </span>
         </div>
         <div className="flex justify-end items-end pr-4 mt-7 gap-4">
-          <Button className="rounded-[4px] border-[0.5px] p-[10px] text-[13px] font-inter">
-            Allow
-          </Button>
-          <Button className="rounded-[4px] border-[0.5px] p-[10px] text-[13px] font-inter">
-            Block
-          </Button>
+          <Link to="/recordscreen">
+            <Button className="rounded-[4px] border-[0.5px] p-[10px] text-[13px] font-inter">
+              Allow
+            </Button>
+          </Link>
+          <Link to="/">
+            <Button className="rounded-[4px] border-[0.5px] p-[10px] text-[13px] font-inter">
+              Block
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

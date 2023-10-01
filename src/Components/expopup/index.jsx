@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { ICONS } from "./../Constant/Icons/index";
 
 const detail = [
@@ -28,6 +29,7 @@ const detail = [
 ];
 
 function ExtPopUp() {
+  const navigate = useNavigate();
   return (
     <div className="flex  md:justify-end md:pr-8 mt-3  extension justify-center">
       <div className="border-2 w-[400px] h-[404px]  py-6 rounded-md shadow-2xl ">
@@ -49,8 +51,13 @@ function ExtPopUp() {
           {detail.map((item) => {
             return (
               <li
+                onClick={
+                  item.name === "helpmeout"
+                    ? () => navigate("/recordscreen")
+                    : ""
+                }
                 key={item.name}
-                className="flex justify-between items-center "
+                className="flex justify-between items-center  cursor-pointer"
               >
                 <div className="flex items-center gap-3">
                   <img src={item.img} alt="" className="w-[20px]" />

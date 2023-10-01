@@ -8,23 +8,27 @@ import ExtPopUp from "../../Components/expopup";
 import Permision from "../../Components/permision";
 import RecordScreen from "../../Components/recordscreen";
 import Control from "../../Components/control";
+import RecordSection from "../../Components/recordSection";
 
 function Home() {
   return (
     <div>
-      {/* <NavBar />
+      <NavBar />
+
       <Hero />
       <Features />
 
       <HowItWorks />
-      <Footer /> */}
+      <Footer />
 
-      {/* <SectionApp /> */}
-      {/* <ExtPopUp /> */}
+      {/* <SectionApp />
+      <ExtPopUp />
 
-      {/* <Permision /> */}
+      <Permision />
       <RecordScreen />
       <Control />
+
+      <RecordSection /> */}
     </div>
   );
 }
